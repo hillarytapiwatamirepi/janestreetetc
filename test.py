@@ -57,12 +57,13 @@ def read_from_exchange(exchange):
 
 def main():
     exchange = connect()
-    # write_to_exchange(exchange, {"type": "hello", "team": team_name.upper()})
-    # hello_from_exchange = read_from_exchange(exchange)
+    write_to_exchange(exchange, {"type": "hello", "team": team_name.upper()})
+    hello_from_exchange = read_from_exchange(exchange)
     # A common mistake people make is to call write_to_exchange() > 1
     # time for every read_from_exchange() response.
     # Since many write messages generate marketdata, this will cause an
     # exponential explosion in pending messages. Please, don't do that!
+    print(hello_from_exchange)
     def buying_and_selling_order_every_ten_minute():
         id = 0 
         t = dt.datetime.now()
