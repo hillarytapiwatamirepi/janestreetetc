@@ -66,7 +66,7 @@ def main():
     def buying_and_selling_order_every_ten_minute():
         id = 0 
         t = dt.datetime.now()
-        while read_from_exchange(exchange):
+        while True:
             delta = dt.datetime.now()-t
             if delta.seconds >= 5:
                 bids[id] = {"type": "add", "order_id": id, "symbol": "BOND", "dir": "BUY", "price":999, "size": 20}
