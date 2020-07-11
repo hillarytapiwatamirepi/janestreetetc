@@ -63,7 +63,7 @@ def main():
     # time for every read_from_exchange() response.
     # Since many write messages generate marketdata, this will cause an
     # exponential explosion in pending messages. Please, don't do that!
-    print(hello_from_exchange)
+    # print(hello_from_exchange)
     def buying_and_selling_order_every_ten_minute():
         id = 0 
         t = dt.datetime.now()
