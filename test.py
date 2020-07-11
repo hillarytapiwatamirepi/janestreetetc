@@ -58,32 +58,32 @@ def read_from_exchange(exchange):
 def main():
     exchange = connect()
     write_to_exchange(exchange, {"type": "hello", "team": team_name.upper()})
-    hello_from_exchange = read_from_exchange(exchange)
+    # hello_from_exchange = read_from_exchange(exchange)
     # A common mistake people make is to call write_to_exchange() > 1
     # time for every read_from_exchange() response.
     # Since many write messages generate marketdata, this will cause an
     # exponential explosion in pending messages. Please, don't do that!
     # print(hello_from_exchange)
-    def buying_and_selling_order_every_ten_minute():
-        id = 0 
-        t = dt.datetime.now()
-        while True:
-            delta = dt.datetime.now()-t
-            if delta.seconds >= 5:
-                bids[id] = {"type": "add", "order_id": id, "symbol": "BOND", "dir": "BUY", "price":999, "size": 20}
-                offers[id] = {"type": "add", "order_id": id, "symbol": "BOND", "dir": "SELL", "price":1001, "size": 20}
-                write_to_exchange(exchange, {"type": "add", "order_id": id, "symbol": "BOND", "dir": "BUY", "price":999, "size": 20})
+    # def buying_and_selling_order_every_ten_minute():
+    #     id = 0 
+    #     t = dt.datetime.now()
+    #     while True:
+    #         delta = dt.datetime.now()-t
+    #         if delta.seconds >= 5:
+    #             bids[id] = {"type": "add", "order_id": id, "symbol": "BOND", "dir": "BUY", "price":999, "size": 20}
+    #             offers[id] = {"type": "add", "order_id": id, "symbol": "BOND", "dir": "SELL", "price":1001, "size": 20}
+    #             write_to_exchange(exchange, {"type": "add", "order_id": id, "symbol": "BOND", "dir": "BUY", "price":999, "size": 20})
                
-                # print(message)
-                write_to_exchange(exchange,{"type": "add", "order_id": id, "symbol": "BOND", "dir": "SELL", "price":1001, "size": 20})
+    #             # print(message)
+    #             write_to_exchange(exchange,{"type": "add", "order_id": id, "symbol": "BOND", "dir": "SELL", "price":1001, "size": 20})
 
-                message = read_from_exchange(exchange)
+    #             message = read_from_exchange(exchange)
                 # message = read_from_exchange(exchange)
                 # print(message)
 
 
     # buying_and_selling_order_every_ten_minute()
-    # id = 2
+    id = 2
     # bids[id] = {"type": "add", "order_id": id, "symbol": "BOND", "dir": "BUY", "price":999, "size": 20}
     # offers[id] = {"type": "add", "order_id": id, "symbol": "BOND", "dir": "SELL", "price":1001, "size": 20}
     # write_to_exchange(exchange, {"type": "add", "order_id": id, "symbol": "BOND", "dir": "BUY", "price":999, "size": 20})
