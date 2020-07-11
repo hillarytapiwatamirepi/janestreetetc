@@ -76,6 +76,7 @@ def main():
 
 
     # buying_and_selling_order_every_ten_minute()
+    id = 2
     bids[id] = {"type": "add", "order_id": id, "symbol": "BOND", "dir": "BUY", "price":999, "size": 20}
     offers[id] = {"type": "add", "order_id": id, "symbol": "BOND", "dir": "SELL", "price":1001, "size": 20}
     write_to_exchange(exchange, {"type": "add", "order_id": id, "symbol": "BOND", "dir": "BUY", "price":999, "size": 20})
