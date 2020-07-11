@@ -89,8 +89,6 @@ def main():
     write_to_exchange(exchange, {"type": "add", "order_id": id, "symbol": "BOND", "dir": "BUY", "price":999, "size": 20})
     id = 2
     write_to_exchange(exchange,{"type": "add", "order_id": id, "symbol": "BOND", "dir": "SELL", "price":1001, "size": 20})
-
-    buy_exchange = read_from_exchange(exchange)
     print(buy_exchange)
     # print("The exchange replied:", hello_from_exchange, file=sys.stderr)
 
